@@ -246,6 +246,10 @@ export namespace yaml {
         public getResource(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequest", namespace: string, name: string): pulumi.Output<certificates.v1beta1.CertificateSigningRequest>;
         public getResource(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequestList", name: string): pulumi.Output<certificates.v1beta1.CertificateSigningRequestList>;
         public getResource(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequestList", namespace: string, name: string): pulumi.Output<certificates.v1beta1.CertificateSigningRequestList>;
+        public getResource(groupVersionKind: "coordination.k8s.io/v1/Lease", name: string): pulumi.Output<coordination.v1.Lease>;
+        public getResource(groupVersionKind: "coordination.k8s.io/v1/Lease", namespace: string, name: string): pulumi.Output<coordination.v1.Lease>;
+        public getResource(groupVersionKind: "coordination.k8s.io/v1/LeaseList", name: string): pulumi.Output<coordination.v1.LeaseList>;
+        public getResource(groupVersionKind: "coordination.k8s.io/v1/LeaseList", namespace: string, name: string): pulumi.Output<coordination.v1.LeaseList>;
         public getResource(groupVersionKind: "coordination.k8s.io/v1beta1/Lease", name: string): pulumi.Output<coordination.v1beta1.Lease>;
         public getResource(groupVersionKind: "coordination.k8s.io/v1beta1/Lease", namespace: string, name: string): pulumi.Output<coordination.v1beta1.Lease>;
         public getResource(groupVersionKind: "coordination.k8s.io/v1beta1/LeaseList", name: string): pulumi.Output<coordination.v1beta1.LeaseList>;
@@ -1062,6 +1066,22 @@ export namespace yaml {
         public getResourceProperty(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequestList", namespace: string, name: string, property: "kind"): pulumi.Output<"CertificateSigningRequestList">;
         public getResourceProperty(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequestList", name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
         public getResourceProperty(groupVersionKind: "certificates.k8s.io/v1beta1/CertificateSigningRequestList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", namespace: string, name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", name: string, property: "kind"): pulumi.Output<"Lease">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", namespace: string, name: string, property: "kind"): pulumi.Output<"Lease">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ObjectMeta>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", namespace: string, name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ObjectMeta>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", name: string, property: "spec"): pulumi.Output<outputApi.coordination.v1.LeaseSpec>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/Lease", namespace: string, name: string, property: "spec"): pulumi.Output<outputApi.coordination.v1.LeaseSpec>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", namespace: string, name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", name: string, property: "items"): pulumi.Output<outputApi.coordination.v1.Lease[]>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", namespace: string, name: string, property: "items"): pulumi.Output<outputApi.coordination.v1.Lease[]>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", name: string, property: "kind"): pulumi.Output<"LeaseList">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", namespace: string, name: string, property: "kind"): pulumi.Output<"LeaseList">;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
+        public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1/LeaseList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
         public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1beta1/Lease", name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1beta1">;
         public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1beta1/Lease", namespace: string, name: string, property: "api_version"): pulumi.Output<"coordination.k8s.io/v1beta1">;
         public getResourceProperty(groupVersionKind: "coordination.k8s.io/v1beta1/Lease", name: string, property: "kind"): pulumi.Output<"Lease">;
@@ -2133,6 +2153,7 @@ export namespace yaml {
             || (apiVersion == "batch/v1beta1" && kind == "CronJobList")
             || (apiVersion == "batch/v2alpha1" && kind == "CronJobList")
             || (apiVersion == "certificates.k8s.io/v1beta1" && kind == "CertificateSigningRequestList")
+            || (apiVersion == "coordination.k8s.io/v1" && kind == "LeaseList")
             || (apiVersion == "coordination.k8s.io/v1beta1" && kind == "LeaseList")
             || (apiVersion == "v1" && kind == "ComponentStatusList")
             || (apiVersion == "v1" && kind == "ConfigMapList")
@@ -2539,6 +2560,16 @@ export namespace yaml {
                 return [{
                     name: `certificates.k8s.io/v1beta1/CertificateSigningRequestList::${id}`,
                     resource: new certificates.v1beta1.CertificateSigningRequestList(id, obj, opts),
+                }];
+            case "coordination.k8s.io/v1/Lease":
+                return [{
+                    name: `coordination.k8s.io/v1/Lease::${id}`,
+                    resource: new coordination.v1.Lease(id, obj, opts),
+                }];
+            case "coordination.k8s.io/v1/LeaseList":
+                return [{
+                    name: `coordination.k8s.io/v1/LeaseList::${id}`,
+                    resource: new coordination.v1.LeaseList(id, obj, opts),
                 }];
             case "coordination.k8s.io/v1beta1/Lease":
                 return [{
@@ -7914,6 +7945,147 @@ export namespace certificates {
 }
 
 export namespace coordination {
+  export namespace v1 {
+    /**
+     * Lease defines a lease concept.
+     */
+    export class Lease extends pulumi.CustomResource {
+      /**
+       * APIVersion defines the versioned schema of this representation of an object. Servers should
+       * convert recognized schemas to the latest internal value, and may reject unrecognized
+       * values. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
+       */
+      public readonly apiVersion: pulumi.Output<"coordination.k8s.io/v1">;
+
+      /**
+       * Kind is a string value representing the REST resource this object represents. Servers may
+       * infer this from the endpoint the client submits requests to. Cannot be updated. In
+       * CamelCase. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       */
+      public readonly kind: pulumi.Output<"Lease">;
+
+      /**
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       */
+      public readonly metadata: pulumi.Output<outputApi.meta.v1.ObjectMeta>;
+
+      /**
+       * Specification of the Lease. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       */
+      public readonly spec: pulumi.Output<outputApi.coordination.v1.LeaseSpec>;
+
+
+      /**
+       * Get the state of an existing `Lease` resource, as identified by `id`.
+       * Typically this ID  is of the form <namespace>/<name>; if <namespace> is omitted, then (per
+       * Kubernetes convention) the ID becomes default/<name>.
+       *
+       * Pulumi will keep track of this resource using `name` as the Pulumi ID.
+       *
+       * @param name _Unique_ name used to register this resource with Pulumi.
+       * @param id An ID for the Kubernetes resource to retrive. Takes the form
+       *  <namespace>/<name> or <name>.
+       * @param opts Uniquely specifies a CustomResource to select.
+       */
+      public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Lease {
+          return new Lease(name, undefined, { ...opts, id: id });
+      }
+
+      public getInputs(): inputApi.coordination.v1.Lease { return this.__inputs; }
+      private readonly __inputs: inputApi.coordination.v1.Lease;
+
+      /**
+      * Create a coordination.v1.Lease resource with the given unique name, arguments, and options.
+      *
+      * @param name The _unique_ name of the resource.
+      * @param args The arguments to use to populate this resource's properties.
+      * @param opts A bag of options that control this resource's behavior.
+      */
+      constructor(name: string, args?: inputApi.coordination.v1.Lease, opts?: pulumi.CustomResourceOptions) {
+          let inputs: pulumi.Inputs = {};
+          inputs["apiVersion"] = "coordination.k8s.io/v1";
+          inputs["kind"] = "Lease";
+          inputs["metadata"] = args && args.metadata || undefined;
+          inputs["spec"] = args && args.spec || undefined;
+          super("kubernetes:coordination.k8s.io/v1:Lease", name, inputs, opts);
+          this.__inputs = <any>args;
+      }
+    }
+
+    /**
+     * LeaseList is a list of Lease objects.
+     */
+    export class LeaseList extends pulumi.CustomResource {
+      /**
+       * APIVersion defines the versioned schema of this representation of an object. Servers should
+       * convert recognized schemas to the latest internal value, and may reject unrecognized
+       * values. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
+       */
+      public readonly apiVersion: pulumi.Output<"coordination.k8s.io/v1">;
+
+      /**
+       * Items is a list of schema objects.
+       */
+      public readonly items: pulumi.Output<outputApi.coordination.v1.Lease[]>;
+
+      /**
+       * Kind is a string value representing the REST resource this object represents. Servers may
+       * infer this from the endpoint the client submits requests to. Cannot be updated. In
+       * CamelCase. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       */
+      public readonly kind: pulumi.Output<"LeaseList">;
+
+      /**
+       * Standard list metadata. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       */
+      public readonly metadata: pulumi.Output<outputApi.meta.v1.ListMeta>;
+
+
+      /**
+       * Get the state of an existing `LeaseList` resource, as identified by `id`.
+       * Typically this ID  is of the form <namespace>/<name>; if <namespace> is omitted, then (per
+       * Kubernetes convention) the ID becomes default/<name>.
+       *
+       * Pulumi will keep track of this resource using `name` as the Pulumi ID.
+       *
+       * @param name _Unique_ name used to register this resource with Pulumi.
+       * @param id An ID for the Kubernetes resource to retrive. Takes the form
+       *  <namespace>/<name> or <name>.
+       * @param opts Uniquely specifies a CustomResource to select.
+       */
+      public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LeaseList {
+          return new LeaseList(name, undefined, { ...opts, id: id });
+      }
+
+      public getInputs(): inputApi.coordination.v1.LeaseList { return this.__inputs; }
+      private readonly __inputs: inputApi.coordination.v1.LeaseList;
+
+      /**
+      * Create a coordination.v1.LeaseList resource with the given unique name, arguments, and options.
+      *
+      * @param name The _unique_ name of the resource.
+      * @param args The arguments to use to populate this resource's properties.
+      * @param opts A bag of options that control this resource's behavior.
+      */
+      constructor(name: string, args?: inputApi.coordination.v1.LeaseList, opts?: pulumi.CustomResourceOptions) {
+          let inputs: pulumi.Inputs = {};
+          inputs["apiVersion"] = "coordination.k8s.io/v1";
+          inputs["items"] = args && args.items || undefined;
+          inputs["kind"] = "LeaseList";
+          inputs["metadata"] = args && args.metadata || undefined;
+          super("kubernetes:coordination.k8s.io/v1:LeaseList", name, inputs, opts);
+          this.__inputs = <any>args;
+      }
+    }
+
+  }
+
   export namespace v1beta1 {
     /**
      * Lease defines a lease concept.

@@ -7517,6 +7517,107 @@ export namespace certificates {
 }
 
 export namespace coordination {
+  export namespace v1 {
+    /**
+     * Lease defines a lease concept.
+     */
+    export interface Lease {
+      /**
+       * APIVersion defines the versioned schema of this representation of an object. Servers should
+       * convert recognized schemas to the latest internal value, and may reject unrecognized
+       * values. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
+       */
+      readonly apiVersion: "coordination.k8s.io/v1"
+
+      /**
+       * Kind is a string value representing the REST resource this object represents. Servers may
+       * infer this from the endpoint the client submits requests to. Cannot be updated. In
+       * CamelCase. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       */
+      readonly kind: "Lease"
+
+      /**
+       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       */
+      readonly metadata: meta.v1.ObjectMeta
+
+      /**
+       * Specification of the Lease. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       */
+      readonly spec: coordination.v1.LeaseSpec
+
+    }
+
+    /**
+     * LeaseList is a list of Lease objects.
+     */
+    export interface LeaseList {
+      /**
+       * APIVersion defines the versioned schema of this representation of an object. Servers should
+       * convert recognized schemas to the latest internal value, and may reject unrecognized
+       * values. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
+       */
+      readonly apiVersion: "coordination.k8s.io/v1"
+
+      /**
+       * Items is a list of schema objects.
+       */
+      readonly items: coordination.v1.Lease[]
+
+      /**
+       * Kind is a string value representing the REST resource this object represents. Servers may
+       * infer this from the endpoint the client submits requests to. Cannot be updated. In
+       * CamelCase. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       */
+      readonly kind: "LeaseList"
+
+      /**
+       * Standard list metadata. More info:
+       * https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       */
+      readonly metadata: meta.v1.ListMeta
+
+    }
+
+    /**
+     * LeaseSpec is a specification of a Lease.
+     */
+    export interface LeaseSpec {
+      /**
+       * acquireTime is a time when the current lease was acquired.
+       */
+      readonly acquireTime: string
+
+      /**
+       * holderIdentity contains the identity of the holder of a current lease.
+       */
+      readonly holderIdentity: string
+
+      /**
+       * leaseDurationSeconds is a duration that candidates for a lease need to wait to force
+       * acquire it. This is measure against time of last observed RenewTime.
+       */
+      readonly leaseDurationSeconds: number
+
+      /**
+       * leaseTransitions is the number of transitions of a lease between holders.
+       */
+      readonly leaseTransitions: number
+
+      /**
+       * renewTime is a time when the current holder of a lease has last updated the lease.
+       */
+      readonly renewTime: string
+
+    }
+
+  }
+
   export namespace v1beta1 {
     /**
      * Lease defines a lease concept.
@@ -19038,8 +19139,8 @@ export namespace storage {
      */
     export interface VolumeError {
       /**
-       * String detailing the error encountered during Attach or Detach operation. This string maybe
-       * logged, so it should not contain sensitive information.
+       * String detailing the error encountered during Attach or Detach operation. This string may
+       * be logged, so it should not contain sensitive information.
        */
       readonly message: string
 
@@ -19471,8 +19572,8 @@ export namespace storage {
      */
     export interface VolumeError {
       /**
-       * String detailing the error encountered during Attach or Detach operation. This string maybe
-       * logged, so it should not contain sensitive information.
+       * String detailing the error encountered during Attach or Detach operation. This string may
+       * be logged, so it should not contain sensitive information.
        */
       readonly message: string
 
