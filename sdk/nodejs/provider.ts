@@ -110,10 +110,6 @@ export namespace yaml {
          * For example:
          *     getResource("apps/v1/Deployment", "nginx")
          */
-        public getResource(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", name: string): pulumi.Output<admissionregistration.v1alpha1.InitializerConfiguration>;
-        public getResource(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", namespace: string, name: string): pulumi.Output<admissionregistration.v1alpha1.InitializerConfiguration>;
-        public getResource(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", name: string): pulumi.Output<admissionregistration.v1alpha1.InitializerConfigurationList>;
-        public getResource(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", namespace: string, name: string): pulumi.Output<admissionregistration.v1alpha1.InitializerConfigurationList>;
         public getResource(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration", name: string): pulumi.Output<admissionregistration.v1beta1.MutatingWebhookConfiguration>;
         public getResource(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration", namespace: string, name: string): pulumi.Output<admissionregistration.v1beta1.MutatingWebhookConfiguration>;
         public getResource(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfigurationList", name: string): pulumi.Output<admissionregistration.v1beta1.MutatingWebhookConfigurationList>;
@@ -452,22 +448,6 @@ export namespace yaml {
          * For example:
          *     getResourceProperty("v1/Service", "nginx", "spec")
          */
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", namespace: string, name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", name: string, property: "initializers"): pulumi.Output<outputApi.admissionregistration.v1alpha1.Initializer[]>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", namespace: string, name: string, property: "initializers"): pulumi.Output<outputApi.admissionregistration.v1alpha1.Initializer[]>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", name: string, property: "kind"): pulumi.Output<"InitializerConfiguration">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", namespace: string, name: string, property: "kind"): pulumi.Output<"InitializerConfiguration">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ObjectMeta>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration", namespace: string, name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ObjectMeta>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", namespace: string, name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", name: string, property: "items"): pulumi.Output<outputApi.admissionregistration.v1alpha1.InitializerConfiguration[]>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", namespace: string, name: string, property: "items"): pulumi.Output<outputApi.admissionregistration.v1alpha1.InitializerConfiguration[]>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", name: string, property: "kind"): pulumi.Output<"InitializerConfigurationList">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", namespace: string, name: string, property: "kind"): pulumi.Output<"InitializerConfigurationList">;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
-        public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList", namespace: string, name: string, property: "metadata"): pulumi.Output<outputApi.meta.v1.ListMeta>;
         public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration", name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1beta1">;
         public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration", namespace: string, name: string, property: "api_version"): pulumi.Output<"admissionregistration.k8s.io/v1beta1">;
         public getResourceProperty(groupVersionKind: "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration", name: string, property: "kind"): pulumi.Output<"MutatingWebhookConfiguration">;
@@ -2124,7 +2104,6 @@ export namespace yaml {
         // engine instead.
         if (
                (apiVersion == "v1" && kind == "List")
-            || (apiVersion == "admissionregistration.k8s.io/v1alpha1" && kind == "InitializerConfigurationList")
             || (apiVersion == "admissionregistration.k8s.io/v1beta1" && kind == "MutatingWebhookConfigurationList")
             || (apiVersion == "admissionregistration.k8s.io/v1beta1" && kind == "ValidatingWebhookConfigurationList")
             || (apiVersion == "apiextensions.k8s.io/v1beta1" && kind == "CustomResourceDefinitionList")
@@ -2221,16 +2200,6 @@ export namespace yaml {
             id = `${namespace}/${id}`;
         }
         switch (`${apiVersion}/${kind}`) {
-            case "admissionregistration.k8s.io/v1alpha1/InitializerConfiguration":
-                return [{
-                    name: `admissionregistration.k8s.io/v1alpha1/InitializerConfiguration::${id}`,
-                    resource: new admissionregistration.v1alpha1.InitializerConfiguration(id, obj, opts),
-                }];
-            case "admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList":
-                return [{
-                    name: `admissionregistration.k8s.io/v1alpha1/InitializerConfigurationList::${id}`,
-                    resource: new admissionregistration.v1alpha1.InitializerConfigurationList(id, obj, opts),
-                }];
             case "admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration":
                 return [{
                     name: `admissionregistration.k8s.io/v1beta1/MutatingWebhookConfiguration::${id}`,
@@ -3233,150 +3202,6 @@ export interface ProviderArgs {
 }
 
 export namespace admissionregistration {
-  export namespace v1alpha1 {
-    /**
-     * InitializerConfiguration describes the configuration of initializers.
-     */
-    export class InitializerConfiguration extends pulumi.CustomResource {
-      /**
-       * APIVersion defines the versioned schema of this representation of an object. Servers should
-       * convert recognized schemas to the latest internal value, and may reject unrecognized
-       * values. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-       */
-      public readonly apiVersion: pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-
-      /**
-       * Initializers is a list of resources and their default initializers Order-sensitive. When
-       * merging multiple InitializerConfigurations, we sort the initializers from different
-       * InitializerConfigurations by the name of the InitializerConfigurations; the order of the
-       * initializers from the same InitializerConfiguration is preserved.
-       */
-      public readonly initializers: pulumi.Output<outputApi.admissionregistration.v1alpha1.Initializer[]>;
-
-      /**
-       * Kind is a string value representing the REST resource this object represents. Servers may
-       * infer this from the endpoint the client submits requests to. Cannot be updated. In
-       * CamelCase. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      public readonly kind: pulumi.Output<"InitializerConfiguration">;
-
-      /**
-       * Standard object metadata; More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
-       */
-      public readonly metadata: pulumi.Output<outputApi.meta.v1.ObjectMeta>;
-
-
-      /**
-       * Get the state of an existing `InitializerConfiguration` resource, as identified by `id`.
-       * Typically this ID  is of the form <namespace>/<name>; if <namespace> is omitted, then (per
-       * Kubernetes convention) the ID becomes default/<name>.
-       *
-       * Pulumi will keep track of this resource using `name` as the Pulumi ID.
-       *
-       * @param name _Unique_ name used to register this resource with Pulumi.
-       * @param id An ID for the Kubernetes resource to retrive. Takes the form
-       *  <namespace>/<name> or <name>.
-       * @param opts Uniquely specifies a CustomResource to select.
-       */
-      public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InitializerConfiguration {
-          return new InitializerConfiguration(name, undefined, { ...opts, id: id });
-      }
-
-      public getInputs(): inputApi.admissionregistration.v1alpha1.InitializerConfiguration { return this.__inputs; }
-      private readonly __inputs: inputApi.admissionregistration.v1alpha1.InitializerConfiguration;
-
-      /**
-      * Create a admissionregistration.v1alpha1.InitializerConfiguration resource with the given unique name, arguments, and options.
-      *
-      * @param name The _unique_ name of the resource.
-      * @param args The arguments to use to populate this resource's properties.
-      * @param opts A bag of options that control this resource's behavior.
-      */
-      constructor(name: string, args?: inputApi.admissionregistration.v1alpha1.InitializerConfiguration, opts?: pulumi.CustomResourceOptions) {
-          let inputs: pulumi.Inputs = {};
-          inputs["apiVersion"] = "admissionregistration.k8s.io/v1alpha1";
-          inputs["initializers"] = args && args.initializers || undefined;
-          inputs["kind"] = "InitializerConfiguration";
-          inputs["metadata"] = args && args.metadata || undefined;
-          super("kubernetes:admissionregistration.k8s.io/v1alpha1:InitializerConfiguration", name, inputs, opts);
-          this.__inputs = <any>args;
-      }
-    }
-
-    /**
-     * InitializerConfigurationList is a list of InitializerConfiguration.
-     */
-    export class InitializerConfigurationList extends pulumi.CustomResource {
-      /**
-       * APIVersion defines the versioned schema of this representation of an object. Servers should
-       * convert recognized schemas to the latest internal value, and may reject unrecognized
-       * values. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-       */
-      public readonly apiVersion: pulumi.Output<"admissionregistration.k8s.io/v1alpha1">;
-
-      /**
-       * List of InitializerConfiguration.
-       */
-      public readonly items: pulumi.Output<outputApi.admissionregistration.v1alpha1.InitializerConfiguration[]>;
-
-      /**
-       * Kind is a string value representing the REST resource this object represents. Servers may
-       * infer this from the endpoint the client submits requests to. Cannot be updated. In
-       * CamelCase. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      public readonly kind: pulumi.Output<"InitializerConfigurationList">;
-
-      /**
-       * Standard list metadata. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      public readonly metadata: pulumi.Output<outputApi.meta.v1.ListMeta>;
-
-
-      /**
-       * Get the state of an existing `InitializerConfigurationList` resource, as identified by `id`.
-       * Typically this ID  is of the form <namespace>/<name>; if <namespace> is omitted, then (per
-       * Kubernetes convention) the ID becomes default/<name>.
-       *
-       * Pulumi will keep track of this resource using `name` as the Pulumi ID.
-       *
-       * @param name _Unique_ name used to register this resource with Pulumi.
-       * @param id An ID for the Kubernetes resource to retrive. Takes the form
-       *  <namespace>/<name> or <name>.
-       * @param opts Uniquely specifies a CustomResource to select.
-       */
-      public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InitializerConfigurationList {
-          return new InitializerConfigurationList(name, undefined, { ...opts, id: id });
-      }
-
-      public getInputs(): inputApi.admissionregistration.v1alpha1.InitializerConfigurationList { return this.__inputs; }
-      private readonly __inputs: inputApi.admissionregistration.v1alpha1.InitializerConfigurationList;
-
-      /**
-      * Create a admissionregistration.v1alpha1.InitializerConfigurationList resource with the given unique name, arguments, and options.
-      *
-      * @param name The _unique_ name of the resource.
-      * @param args The arguments to use to populate this resource's properties.
-      * @param opts A bag of options that control this resource's behavior.
-      */
-      constructor(name: string, args?: inputApi.admissionregistration.v1alpha1.InitializerConfigurationList, opts?: pulumi.CustomResourceOptions) {
-          let inputs: pulumi.Inputs = {};
-          inputs["apiVersion"] = "admissionregistration.k8s.io/v1alpha1";
-          inputs["items"] = args && args.items || undefined;
-          inputs["kind"] = "InitializerConfigurationList";
-          inputs["metadata"] = args && args.metadata || undefined;
-          super("kubernetes:admissionregistration.k8s.io/v1alpha1:InitializerConfigurationList", name, inputs, opts);
-          this.__inputs = <any>args;
-      }
-    }
-
-  }
-
   export namespace v1beta1 {
     /**
      * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept

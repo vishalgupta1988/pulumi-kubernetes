@@ -2,133 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 export namespace admissionregistration {
-  export namespace v1alpha1 {
-    /**
-     * Initializer describes the name and the failure policy of an initializer, and what resources
-     * it applies to.
-     */
-    export interface Initializer {
-      /**
-       * Name is the identifier of the initializer. It will be added to the object that needs to be
-       * initialized. Name should be fully qualified, e.g., alwayspullimages.kubernetes.io, where
-       * "alwayspullimages" is the name of the webhook, and kubernetes.io is the name of the
-       * organization. Required
-       */
-      readonly name: string
-
-      /**
-       * Rules describes what resources/subresources the initializer cares about. The initializer
-       * cares about an operation if it matches _any_ Rule. Rule.Resources must not include
-       * subresources.
-       */
-      readonly rules: admissionregistration.v1alpha1.Rule[]
-
-    }
-
-    /**
-     * InitializerConfiguration describes the configuration of initializers.
-     */
-    export interface InitializerConfiguration {
-      /**
-       * APIVersion defines the versioned schema of this representation of an object. Servers should
-       * convert recognized schemas to the latest internal value, and may reject unrecognized
-       * values. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-       */
-      readonly apiVersion: "admissionregistration.k8s.io/v1alpha1"
-
-      /**
-       * Initializers is a list of resources and their default initializers Order-sensitive. When
-       * merging multiple InitializerConfigurations, we sort the initializers from different
-       * InitializerConfigurations by the name of the InitializerConfigurations; the order of the
-       * initializers from the same InitializerConfiguration is preserved.
-       */
-      readonly initializers: admissionregistration.v1alpha1.Initializer[]
-
-      /**
-       * Kind is a string value representing the REST resource this object represents. Servers may
-       * infer this from the endpoint the client submits requests to. Cannot be updated. In
-       * CamelCase. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      readonly kind: "InitializerConfiguration"
-
-      /**
-       * Standard object metadata; More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
-       */
-      readonly metadata: meta.v1.ObjectMeta
-
-    }
-
-    /**
-     * InitializerConfigurationList is a list of InitializerConfiguration.
-     */
-    export interface InitializerConfigurationList {
-      /**
-       * APIVersion defines the versioned schema of this representation of an object. Servers should
-       * convert recognized schemas to the latest internal value, and may reject unrecognized
-       * values. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#resources
-       */
-      readonly apiVersion: "admissionregistration.k8s.io/v1alpha1"
-
-      /**
-       * List of InitializerConfiguration.
-       */
-      readonly items: admissionregistration.v1alpha1.InitializerConfiguration[]
-
-      /**
-       * Kind is a string value representing the REST resource this object represents. Servers may
-       * infer this from the endpoint the client submits requests to. Cannot be updated. In
-       * CamelCase. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      readonly kind: "InitializerConfigurationList"
-
-      /**
-       * Standard list metadata. More info:
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
-       */
-      readonly metadata: meta.v1.ListMeta
-
-    }
-
-    /**
-     * Rule is a tuple of APIGroups, APIVersion, and Resources.It is recommended to make sure that
-     * all the tuple expansions are valid.
-     */
-    export interface Rule {
-      /**
-       * APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present,
-       * the length of the slice must be one. Required.
-       */
-      readonly apiGroups: string[]
-
-      /**
-       * APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is
-       * present, the length of the slice must be one. Required.
-       */
-      readonly apiVersions: string[]
-
-      /**
-       * Resources is a list of resources this rule applies to.
-       * 
-       * For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all
-       * resources, but not subresources. 'pods/*' means all subresources of pods. '*&#8205;/scale'
-       * means all scale subresources. '*&#8205;/*' means all resources and their subresources.
-       * 
-       * If wildcard is present, the validation rule will ensure resources do not overlap with each
-       * other.
-       * 
-       * Depending on the enclosing object, subresources might not be allowed. Required.
-       */
-      readonly resources: string[]
-
-    }
-
-  }
-
   export namespace v1beta1 {
     /**
      * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept
@@ -15887,6 +15760,15 @@ export namespace meta {
       readonly singularName: string
 
       /**
+       * The hash value of the storage version, the version this resource is converted to when
+       * written to the data store. Value must be treated as opaque by clients. Only equality
+       * comparison on the value is valid. This is an alpha feature and may change or be removed in
+       * the future. The field is populated by the apiserver only if the StorageVersionHash feature
+       * gate is enabled. This field will remain optional even if it graduates.
+       */
+      readonly storageVersionHash: string
+
+      /**
        * verbs is a list of supported kube verbs (this includes get, list, watch, create, update,
        * patch, delete, deletecollection, and proxy)
        */
@@ -16257,6 +16139,8 @@ export namespace meta {
        * When an object is created, the system will populate this list with the current set of
        * initializers. Only privileged users may set or modify this list. Once it is empty, it may
        * not be modified further by any user.
+       * 
+       * DEPRECATED - initializers are an alpha field and will be removed in v1.15.
        */
       readonly initializers: meta.v1.Initializers
 
